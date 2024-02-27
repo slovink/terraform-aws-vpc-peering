@@ -1,0 +1,69 @@
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+
+# Name of this project
+name : Terraform AWS VPC-PEERING
+
+# License of this project
+license: "APACHE"
+
+# Canonical GitHub repo
+github_repo: git@github.com:slovink/terraform-aws-vpc-peering.git
+
+
+# Badges to display
+badges:
+  - name: "Terraform"
+    image: "https://img.shields.io/badge/Terraform-v1.7.0-green"
+    url: "https://www.terraform.io"
+  - name: "Licence"
+    image: "https://img.shields.io/badge/License-APACHE-blue.svg"
+    url: "https://github.com/slovink/terraform-aws-vpc-peering/blob/master/LICENSE"
+  - name: "tfsec"
+    image: "https://github.com/slovink/terraform-aws-vpc-peering/actions/workflows/tfsec.yml/badge.svg"
+    url: "https://github.com/slovink/terraform-aws-vpc-peering/tree/master/.github/workflows/tfsec.yml"
+
+
+
+#  description of this project
+description: |-
+  This terraform module is designed to generate consistent label names and tags for resources. You can use terraform-vpc to implement a strict naming convention.
+
+
+# extra content
+include:
+  - "terraform.md"
+# How to use this project
+usage : |-
+
+  ### Simple Example
+  Here is an example of how you can use this module in your inventory structure:
+  ```hcl
+
+    module "vpc-peering" {
+      source = "./../../"
+
+     name             = local.name
+     environment      = local.environment
+     requestor_vpc_id = "vpc-xxxxxxxxxxxxxxxxx"
+     acceptor_vpc_id  = "vpc-xxxxxxxxxxxxxxxxx"
+   }
+
+  ```
+  ### Example: multi-region
+  Here is an example of how you can use this module in your inventory structure:
+  ```hcl
+    module "vpc-peering" {
+      source           = "./../.."
+      name             = "vpc-peering"
+      environment      = "prod"
+      label_order      = ["environment", "name"]
+      requestor_vpc_id = "vpc-xxxxxxxxxxxxxx"
+      acceptor_vpc_id  = "vpc-xxxxxxxxxxxxxx"
+      accept_region    = "us-west-2"
+      auto_accept      = false
+    }
+
+  ````
