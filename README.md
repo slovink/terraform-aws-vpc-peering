@@ -51,7 +51,7 @@ To use this module, you should have Terraform installed and configured for AWS. 
 # Example: default
 ```hcl
 module "vpc-peering" {
-  source           = "git::https://github.com/slovink/terraform-aws-vpc-peering.git?ref=v1.0.0"
+  source           = "https://github.com/slovink/terraform-aws-vpc-peering.git?ref=v1.0.0"
   name             = local.name
   environment      = local.environment
   requestor_vpc_id = "vpc-045eae4d6b443a318"
@@ -63,7 +63,7 @@ module "vpc-peering" {
 
 ```hcl
 module "vpc-peering" {
-  source           = "git::https://github.com/slovink/terraform-aws-vpc-peering.git?ref=v1.0.0"
+  source           = "https://github.com/slovink/terraform-aws-vpc-peering.git?ref=v1.0.0"
   name             = "vpc-peering"
   environment      = "prod"
   label_order      = ["environment", "name"]

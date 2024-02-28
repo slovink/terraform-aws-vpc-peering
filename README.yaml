@@ -10,7 +10,7 @@ name : Terraform AWS VPC-PEERING
 license: "APACHE"
 
 # Canonical GitHub repo
-github_repo: git@github.com:slovink/terraform-aws-vpc-peering.git
+github_repo: https://github.com/slovink/terraform-aws-vpc-peering.git
 
 
 # Badges to display
@@ -43,7 +43,7 @@ usage : |-
   ```hcl
 
     module "vpc-peering" {
-      source = "./../../"
+      source = "https://github.com/slovink/terraform-aws-vpc-peering.git?ref=v1.0.0"
 
      name             = local.name
      environment      = local.environment
@@ -56,7 +56,7 @@ usage : |-
   Here is an example of how you can use this module in your inventory structure:
   ```hcl
     module "vpc-peering" {
-      source           = "./../.."
+      source           = "https://github.com/slovink/terraform-aws-vpc-peering.git"
       name             = "vpc-peering"
       environment      = "prod"
       label_order      = ["environment", "name"]
